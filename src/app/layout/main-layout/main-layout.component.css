@@ -1,0 +1,11 @@
+.app-sidebar {
+  width: 280px; /* Aquí controlas el ancho exacto. 280px es el estándar ideal. */
+  flex-shrink: 0;
+  min-height: calc(100vh - 56px); /* Altura total de la pantalla menos el Navbar */
+  border-right: 1px solid #e9ecef;
+}
+
+.main-bg {
+  background-color: #f4f6f9; /* Gris muy sutil para crear el contraste */
+  min-height: calc(100vh - 56px);
+}

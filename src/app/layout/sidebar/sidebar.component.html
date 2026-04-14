@@ -1,0 +1,14 @@
+<div class="position-sticky pt-3 h-400">
+  <ul class="nav flex-column px-2">
+    @for (item of menuItems; track item.path) {
+      <li class="nav-item mb-2">
+        <a class="nav-link py-2 px-3 rounded transition-all d-flex align-items-center" 
+           [routerLink]="item.path" 
+           routerLinkActive="active bg-primary text-white shadow-sm">
+          <i class="bi {{ item.icon }} me-3 fs-5"></i>
+          <span>{{ item.label }}</span>
+        </a>
+      </li>
+    }
+  </ul>
+</div>
