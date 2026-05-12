@@ -11,7 +11,7 @@
       <ul class="nav nav-pills nav-fill mb-4 p-1 bg-white rounded-pill shadow-sm" id="intercambiosTab" role="tablist">
         <li class="nav-item" role="presentation">
           <button class="nav-link active rounded-pill fw-semibold" id="recibidas-tab" data-bs-toggle="pill" data-bs-target="#recibidas" type="button" role="tab">
-            Recibidas <span class="badge bg-danger ms-1">1 Nueva</span>
+            Recibidas
           </button>
         </li>
         <li class="nav-item" role="presentation">
@@ -23,58 +23,70 @@
 
       <div class="tab-content" id="intercambiosTabContent">
         <div class="tab-pane fade show active" id="recibidas" role="tabpanel">
+          @if (received$ | async; as requests) {
+          @for (request of requests; track request.id) {
           <div class="card border-0 shadow-sm rounded-4 mb-3 p-3 position-relative overflow-hidden">
             <div class="bg-primary position-absolute top-0 start-0 h-100" style="width: 5px;"></div>
 
             <div class="card-body">
               <div class="d-flex align-items-center justify-content-between mb-3">
                 <div class="d-flex align-items-center">
-                  <img src="https://ui-avatars.com/api/?name=Laura+M&background=E0F2FE&color=0284C7" alt="Perfil" class="rounded-circle avatar-placeholder me-3" style="width: 60px; height: 60px;">
+                  <img [src]="request.avatarUrl" [alt]="request.userName" class="rounded-circle avatar-placeholder me-3" style="width: 60px; height: 60px;">
                   <div>
-                    <h5 class="mb-0 fw-bold">Laura Mendoza</h5>
-                    <small class="text-muted">Hace 2 horas</small>
+                    <h5 class="mb-0 fw-bold">{{ request.userName }}</h5>
+                    <small class="text-muted">{{ request.createdAt | date:'short' }}</small>
                   </div>
                 </div>
-                <span class="badge bg-warning text-dark px-3 py-2 rounded-pill"><i class="bi bi-clock"></i> Pendiente</span>
+                <span class="badge bg-warning text-dark px-3 py-2 rounded-pill"><i class="bi bi-clock"></i> {{ request.status }}</span>
               </div>
 
               <div class="bg-light p-3 rounded-3 mb-4">
-                <p class="mb-1"><strong><i class="bi bi-arrow-right-short text-primary"></i> Quiere aprender de ti:</strong> Excel Avanzado</p>
-                <p class="mb-2"><strong><i class="bi bi-arrow-left-short text-success"></i> Te ofrece ensenar:</strong> Ingles Basico</p>
+                <p class="mb-1"><strong><i class="bi bi-arrow-right-short text-primary"></i> Quiere aprender de ti:</strong> {{ request.requestedSkill }}</p>
+                <p class="mb-2"><strong><i class="bi bi-arrow-left-short text-success"></i> Te ofrece ensenar:</strong> {{ request.offeredSkill }}</p>
                 <hr class="text-muted">
-                <p class="mb-0 small text-muted fst-italic">"Hola! Vi tu perfil y me encantaria que me ayudes con unas tablas dinamicas. A cambio podemos practicar conversacion en ingles. Que dices?"</p>
+                <p class="mb-0 small text-muted fst-italic">"{{ request.message }}"</p>
               </div>
 
               <div class="d-flex gap-2 justify-content-end">
-                <button class="btn btn-outline-danger px-4 rounded-pill fw-semibold">Rechazar</button>
+                <button class="btn btn-outline-danger px-4 rounded-pill fw-semibold" type="button">Rechazar</button>
                 <a class="btn btn-success px-4 rounded-pill fw-semibold" routerLink="/agenda">
                   <i class="bi bi-check-lg"></i> Aceptar Intercambio
                 </a>
               </div>
             </div>
           </div>
+          } @empty {
+            <div class="card border-0 shadow-sm rounded-4 p-4 text-center text-muted">No tienes solicitudes recibidas.</div>
+          }
+          }
         </div>
 
         <div class="tab-pane fade" id="enviadas" role="tabpanel">
+          @if (sent$ | async; as requests) {
+          @for (request of requests; track request.id) {
           <div class="card border-0 shadow-sm rounded-4 mb-3 p-3">
             <div class="card-body opacity-75">
               <div class="d-flex align-items-center justify-content-between mb-3">
                 <div class="d-flex align-items-center">
-                  <img src="https://ui-avatars.com/api/?name=Carlos+G&background=0D8ABC&color=fff" alt="Perfil" class="rounded-circle avatar-placeholder me-3" style="width: 60px; height: 60px;">
+                  <img [src]="request.avatarUrl" [alt]="request.userName" class="rounded-circle avatar-placeholder me-3" style="width: 60px; height: 60px;">
                   <div>
-                    <h5 class="mb-0 fw-bold">Carlos Gomez</h5>
-                    <small class="text-muted">Enviada ayer</small>
+                    <h5 class="mb-0 fw-bold">{{ request.userName }}</h5>
+                    <small class="text-muted">{{ request.createdAt | date:'short' }}</small>
                   </div>
                 </div>
-                <span class="badge bg-secondary px-3 py-2 rounded-pill"><i class="bi bi-hourglass-split"></i> Esperando Respuesta</span>
+                <span class="badge bg-secondary px-3 py-2 rounded-pill"><i class="bi bi-hourglass-split"></i> {{ request.status }}</span>
               </div>
 
               <div class="bg-light p-3 rounded-3">
-                <p class="mb-1 small"><strong>Quieres aprender:</strong> Python (Nivel Intermedio)</p>
-                <p class="mb-0 small"><strong>Ofreciste ensenar:</strong> Excel Avanzado</p>
+                <p class="mb-1 small"><strong>Quieres aprender:</strong> {{ request.requestedSkill }}</p>
+                <p class="mb-0 small"><strong>Ofreciste ensenar:</strong> {{ request.offeredSkill }}</p>
               </div>
             </div>
           </div>
+          } @empty {
+            <div class="card border-0 shadow-sm rounded-4 p-4 text-center text-muted">No tienes solicitudes enviadas.</div>
+          }
+          }
         </div>
       </div>
     </div>

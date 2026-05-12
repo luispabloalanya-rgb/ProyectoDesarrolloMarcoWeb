@@ -1,0 +1,33 @@
+[
+  {
+    "id": "basic",
+    "name": "Plan Basico",
+    "price": 0,
+    "period": "mes",
+    "description": "Ideal para quienes tienen tiempo para ensenar e intercambiar.",
+    "highlighted": false,
+    "current": true,
+    "features": ["1 credito de bienvenida", "Gana creditos al ensenar", "Busqueda estandar", "Contiene anuncios"]
+  },
+  {
+    "id": "credits",
+    "name": "Pack de Creditos",
+    "price": 4.99,
+    "period": "pago",
+    "description": "Aprende aunque no tengas tiempo de ensenar ahora mismo.",
+    "badge": "Mas popular",
+    "highlighted": true,
+    "current": false,
+    "features": ["Recibe 5 creditos al instante", "Usalos cuando quieras", "Los creditos no caducan"]
+  },
+  {
+    "id": "premium",
+    "name": "SkillSwap Premium",
+    "price": 9.99,
+    "period": "mes",
+    "description": "La experiencia de aprendizaje sin limites.",
+    "highlighted": false,
+    "current": false,
+    "features": ["Intercambios ilimitados", "Perfil destacado en busquedas", "Sin publicidad", "Soporte prioritario"]
+  }
+]

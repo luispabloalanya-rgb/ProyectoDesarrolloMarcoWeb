@@ -1,0 +1,38 @@
+[
+  {
+    "id": "ex-001",
+    "direction": "recibida",
+    "userId": "laura",
+    "userName": "Laura Mendoza",
+    "avatarUrl": "https://ui-avatars.com/api/?name=Laura+Mendoza&background=E0F2FE&color=0284C7",
+    "requestedSkill": "Excel Avanzado",
+    "offeredSkill": "Power BI",
+    "message": "Hola! Vi tu perfil y me encantaria que me ayudes con tablas dinamicas. A cambio puedo ayudarte con Power BI.",
+    "status": "pendiente",
+    "createdAt": "2026-05-12T08:30:00"
+  },
+  {
+    "id": "ex-002",
+    "direction": "enviada",
+    "userId": "carlos",
+    "userName": "Carlos Gomez",
+    "avatarUrl": "https://ui-avatars.com/api/?name=Carlos+Gomez&background=0D8ABC&color=fff",
+    "requestedSkill": "Python",
+    "offeredSkill": "Excel Avanzado",
+    "message": "Quiero aprender Python desde cero y puedo ayudarte con reportes en Excel.",
+    "status": "pendiente",
+    "createdAt": "2026-05-11T16:00:00"
+  },
+  {
+    "id": "ex-003",
+    "direction": "recibida",
+    "userId": "ana",
+    "userName": "Ana Mendoza",
+    "avatarUrl": "https://ui-avatars.com/api/?name=Ana+Mendoza&background=198754&color=fff",
+    "requestedSkill": "Ingles Basico",
+    "offeredSkill": "Matematicas",
+    "message": "Podemos practicar ingles y te apoyo con ejercicios de calculo.",
+    "status": "aceptado",
+    "createdAt": "2026-05-09T10:15:00"
+  }
+]

@@ -1,0 +1,39 @@
+[
+  {
+    "id": "ses-001",
+    "exchangeId": "ex-002",
+    "userName": "Carlos Gomez",
+    "avatarUrl": "https://ui-avatars.com/api/?name=Carlos+Gomez&background=0D8ABC&color=fff",
+    "skill": "Python Basico",
+    "role": "aprendes",
+    "status": "programada",
+    "date": "2026-05-16",
+    "time": "10:00",
+    "durationMinutes": 60,
+    "location": "Sala virtual"
+  },
+  {
+    "id": "ses-002",
+    "exchangeId": "ex-001",
+    "userName": "Laura Mendoza",
+    "avatarUrl": "https://ui-avatars.com/api/?name=Laura+Mendoza&background=E0F2FE&color=0284C7",
+    "skill": "Excel Avanzado",
+    "role": "ensenas",
+    "status": "por_agendar",
+    "durationMinutes": 60,
+    "location": "Por definir"
+  },
+  {
+    "id": "ses-003",
+    "exchangeId": "ex-003",
+    "userName": "Ana Mendoza",
+    "avatarUrl": "https://ui-avatars.com/api/?name=Ana+Mendoza&background=198754&color=fff",
+    "skill": "Ingles Conversacional",
+    "role": "aprendes",
+    "status": "finalizada",
+    "date": "2026-05-08",
+    "time": "19:00",
+    "durationMinutes": 60,
+    "location": "Google Meet"
+  }
+]

@@ -16,6 +16,7 @@ export class SidebarComponent {
     { path: '/solicitudes', label: 'Intercambios', icon: 'bi-arrow-left-right' },
     { path: '/planes', label: 'Premium', icon: 'bi-star-fill' },
     { path: '/chat', label: 'Mensajes', icon: 'bi-chat-dots' },
-    { path: '/historial', label: 'Historial', icon: 'bi-journal-text' }
+    { path: '/historial', label: 'Historial', icon: 'bi-journal-text' },
+    { path: '/configuracion', label: 'Configuracion', icon: 'bi-gear' }
   ];
 }

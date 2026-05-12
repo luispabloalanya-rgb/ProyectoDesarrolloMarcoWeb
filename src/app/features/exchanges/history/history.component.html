@@ -1,1 +1,54 @@
-<p>history works!</p>
+<main class="container py-5">
+  <div class="row mb-4 align-items-center">
+    <div class="col-md-8">
+      <h2 class="fw-bold">Historial</h2>
+      <p class="text-muted">Consulta sesiones finalizadas, creditos ganados y valoraciones pendientes.</p>
+    </div>
+    <div class="col-md-4 text-md-end">
+      <a routerLink="/finalizar" class="btn btn-outline-primary rounded-pill">
+        <i class="bi bi-star"></i> Calificar ultima sesion
+      </a>
+    </div>
+  </div>
+
+  <div class="card border-0 shadow-sm rounded-4 overflow-hidden">
+    <div class="table-responsive">
+      <table class="table align-middle mb-0">
+        <thead class="table-light">
+          <tr>
+            <th>Sesion</th>
+            <th>Fecha</th>
+            <th>Rol</th>
+            <th>Duracion</th>
+            <th>Estado</th>
+          </tr>
+        </thead>
+        <tbody>
+          @if (history$ | async; as sessions) {
+            @for (session of sessions; track session.id) {
+              <tr>
+                <td>
+                  <div class="d-flex align-items-center">
+                    <img [src]="session.avatarUrl" [alt]="session.userName" class="rounded-circle me-3" width="42" height="42">
+                    <div>
+                      <div class="fw-semibold">{{ session.skill }}</div>
+                      <small class="text-muted">{{ session.userName }}</small>
+                    </div>
+                  </div>
+                </td>
+                <td>{{ session.date | date:'mediumDate' }}</td>
+                <td>{{ session.role === 'ensenas' ? 'Ensenaste' : 'Aprendiste' }}</td>
+                <td>{{ session.durationMinutes }} min</td>
+                <td><span class="badge bg-success-subtle text-success">Finalizada</span></td>
+              </tr>
+            } @empty {
+              <tr>
+                <td colspan="5" class="text-center text-muted py-5">Aun no tienes sesiones finalizadas.</td>
+              </tr>
+            }
+          }
+        </tbody>
+      </table>
+    </div>
+  </div>
+</main>

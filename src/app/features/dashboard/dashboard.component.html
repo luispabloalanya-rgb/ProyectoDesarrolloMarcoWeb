@@ -1,16 +1,18 @@
 <main class="container py-5">
+  @if (currentUser$ | async; as user) {
   <div class="row justify-content-center text-center mb-5">
     <div class="col-lg-8">
-      <h1 class="display-5 fw-bold mb-3">Bienvenido, Usuario</h1>
+      <h1 class="display-5 fw-bold mb-3">Bienvenida, {{ user.shortName }}</h1>
       <p class="lead text-muted mb-4">Que habilidad te gustaria aprender o compartir hoy?</p>
 
       <div class="input-group input-group-lg shadow-sm rounded-pill overflow-hidden">
         <span class="input-group-text bg-white border-0 ps-4"><i class="bi bi-search text-muted"></i></span>
-        <input type="text" class="form-control border-0" placeholder="Ej. Aprender Excel, Ensenar Ingles..." aria-label="Buscar habilidades">
-        <a class="btn btn-primary px-4" routerLink="/busqueda">Buscar</a>
+        <input type="text" class="form-control border-0" placeholder="Ej. Aprender Excel, Ensenar Ingles..." aria-label="Buscar habilidades" [(ngModel)]="searchTerm">
+        <a class="btn btn-primary px-4" [routerLink]="['/busqueda']" [queryParams]="{ q: searchTerm }">Buscar</a>
       </div>
     </div>
   </div>
+  }
 
   <div class="row g-4">
     <a routerLink="/busqueda" class="col-12 col-md-6 col-lg-3 text-decoration-none">
@@ -39,9 +41,11 @@
 
     <a routerLink="/solicitudes" class="col-12 col-md-6 col-lg-3 text-decoration-none">
       <div class="card h-100 border-0 shadow-sm card-dashboard text-center p-4 position-relative">
-        <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger mt-3">
-          2 nuevas
-        </span>
+        @if (pendingRequests$ | async; as pending) {
+          @if (pending > 0) {
+            <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger mt-3">{{ pending }} nuevas</span>
+          }
+        }
         <div class="card-body p-0 text-dark">
           <div class="icon-box bg-warning bg-opacity-10 text-warning">
             <i class="bi bi-arrow-left-right fs-2"></i>
@@ -64,4 +68,36 @@
       </div>
     </a>
   </div>
+
+  <section class="row g-4 mt-4">
+    <div class="col-lg-4">
+      <div class="card border-0 shadow-sm rounded-4 p-4 h-100">
+        <span class="text-muted small text-uppercase fw-semibold">Banco de tiempo</span>
+        <div class="display-6 fw-bold text-primary mt-2">{{ credits$ | async }} Creditos</div>
+        <p class="text-muted mb-0">Usa tus creditos para solicitar sesiones o ganalos al ensenar.</p>
+      </div>
+    </div>
+    <div class="col-lg-8">
+      <div class="card border-0 shadow-sm rounded-4 p-4 h-100">
+        <div class="d-flex justify-content-between align-items-center mb-3">
+          <h5 class="fw-bold mb-0">Proximas sesiones</h5>
+          <a routerLink="/agenda" class="btn btn-sm btn-outline-primary rounded-pill">Ver agenda</a>
+        </div>
+        @if (nextSessions$ | async; as sessions) {
+          @for (session of sessions; track session.id) {
+            <div class="d-flex align-items-center border-top py-3">
+              <img [src]="session.avatarUrl" [alt]="session.userName" class="rounded-circle me-3" width="48" height="48">
+              <div class="flex-grow-1">
+                <div class="fw-semibold">{{ session.skill }}</div>
+                <small class="text-muted">{{ session.userName }} - {{ session.date }} {{ session.time }}</small>
+              </div>
+              <span class="badge bg-success-subtle text-success">{{ session.role === 'ensenas' ? 'Ensenas' : 'Aprendes' }}</span>
+            </div>
+          } @empty {
+            <p class="text-muted mb-0">Aun no tienes sesiones programadas.</p>
+          }
+        }
+      </div>
+    </div>
+  </section>
 </main>

@@ -18,82 +18,71 @@
           <h5 class="fw-bold mb-3"><i class="bi bi-filter"></i> Filtros</h5>
 
           <div class="mb-4">
+            <label class="form-label fw-semibold text-muted small text-uppercase">Busqueda</label>
+            <input class="form-control" type="search" placeholder="Habilidad o usuario" [(ngModel)]="query">
+          </div>
+
+          <div class="mb-4">
             <label class="form-label fw-semibold text-muted small text-uppercase">Categoria</label>
-            <select class="form-select mb-2">
-              <option selected>Todas las categorias</option>
-              <option value="1">Programacion y Tecnologia</option>
-              <option value="2">Idiomas</option>
-              <option value="3">Diseno y Arte</option>
-              <option value="4">Negocios y Marketing</option>
+            <select class="form-select mb-2" [(ngModel)]="category">
+              <option value="">Todas las categorias</option>
+              <option value="Tecnologia">Programacion y Tecnologia</option>
+              <option value="Idiomas">Idiomas</option>
+              <option value="Diseno">Diseno y Arte</option>
+              <option value="Negocios">Negocios y Marketing</option>
+              <option value="Ciencias">Ciencias</option>
             </select>
           </div>
 
           <div class="mb-4">
             <label class="form-label fw-semibold text-muted small text-uppercase">Modalidad</label>
-            <div class="form-check">
-              <input class="form-check-input" type="checkbox" id="modOnline" checked>
-              <label class="form-check-label" for="modOnline">Online (Videollamada)</label>
-            </div>
-            <div class="form-check">
-              <input class="form-check-input" type="checkbox" id="modPresencial">
-              <label class="form-check-label" for="modPresencial">Presencial (En campus)</label>
-            </div>
+            <select class="form-select" [(ngModel)]="modality">
+              <option value="">Todas</option>
+              <option value="Online">Online</option>
+              <option value="Presencial">Presencial</option>
+              <option value="Mixto">Mixto</option>
+            </select>
           </div>
 
-          <button class="btn btn-primary w-100 rounded-pill">Aplicar Filtros</button>
+          <button class="btn btn-outline-secondary w-100 rounded-pill" type="button" (click)="clearFilters()">Limpiar filtros</button>
         </div>
       </div>
     </aside>
 
     <section class="col-lg-9">
       <div class="row row-cols-1 row-cols-md-2 g-4">
+        @if (users$ | async; as users) {
+        @for (user of filterUsers(users); track user.id) {
         <div class="col">
           <div class="card h-100 border-0 shadow-sm user-card p-3">
             <div class="d-flex align-items-center mb-3">
-              <img src="https://ui-avatars.com/api/?name=Carlos+G&background=0D8ABC&color=fff" alt="Perfil" class="rounded-circle avatar-placeholder me-3">
+              <img [src]="user.avatarUrl" [alt]="user.name" class="rounded-circle avatar-placeholder me-3">
               <div>
-                <h5 class="card-title mb-0 fw-bold">Carlos G.</h5>
-                <small class="text-warning"><i class="bi bi-star-fill"></i> 4.9 (12 intercambios)</small>
+                <h5 class="card-title mb-0 fw-bold">{{ user.shortName }}</h5>
+                <small class="text-warning"><i class="bi bi-star-fill"></i> {{ user.rating }} ({{ user.exchanges }} intercambios)</small>
               </div>
             </div>
             <div class="card-body p-0 mb-3">
-              <p class="mb-2"><strong class="text-success"><i class="bi bi-arrow-up-right-circle"></i> Ensena:</strong> Python, SQL Basico</p>
-              <p class="mb-0"><strong class="text-danger"><i class="bi bi-arrow-down-right-circle"></i> Busca:</strong> Excel Avanzado, Power BI</p>
+              <p class="mb-2"><strong class="text-success"><i class="bi bi-arrow-up-right-circle"></i> Ensena:</strong> {{ user.teaches[0].name }}</p>
+              <p class="mb-2"><strong class="text-danger"><i class="bi bi-arrow-down-right-circle"></i> Busca:</strong> {{ user.wants[0].name }}</p>
+              <p class="small text-muted mb-0"><i class="bi bi-geo-alt"></i> {{ user.location }} - {{ user.modality }}</p>
             </div>
             <div class="card-footer bg-transparent border-0 p-0">
-              <a routerLink="/perfil/carlos" class="btn btn-outline-primary w-100 rounded-pill">Ver Perfil completo</a>
+              <a [routerLink]="['/perfil', user.id]" class="btn btn-outline-primary w-100 rounded-pill">Ver Perfil completo</a>
             </div>
           </div>
         </div>
-
-        <div class="col">
-          <div class="card h-100 border-0 shadow-sm user-card p-3">
-            <div class="d-flex align-items-center mb-3">
-              <img src="https://ui-avatars.com/api/?name=Ana+M&background=198754&color=fff" alt="Perfil" class="rounded-circle avatar-placeholder me-3">
-              <div>
-                <h5 class="card-title mb-0 fw-bold">Ana M.</h5>
-                <small class="text-warning"><i class="bi bi-star-fill"></i> 5.0 (8 intercambios)</small>
-              </div>
-            </div>
-            <div class="card-body p-0 mb-3">
-              <p class="mb-2"><strong class="text-success"><i class="bi bi-arrow-up-right-circle"></i> Ensena:</strong> Ingles Conversacional</p>
-              <p class="mb-0"><strong class="text-danger"><i class="bi bi-arrow-down-right-circle"></i> Busca:</strong> Ayuda con Matematicas</p>
-            </div>
-            <div class="card-footer bg-transparent border-0 p-0">
-              <a routerLink="/perfil/ana" class="btn btn-outline-primary w-100 rounded-pill">Ver Perfil completo</a>
+        } @empty {
+          <div class="col-12">
+            <div class="card border-0 shadow-sm rounded-4 p-5 text-center">
+              <i class="bi bi-search display-5 text-muted"></i>
+              <h5 class="fw-bold mt-3">No encontramos coincidencias</h5>
+              <p class="text-muted mb-0">Prueba quitando filtros o buscando otra habilidad.</p>
             </div>
           </div>
+        }
+        }
         </div>
-      </div>
-
-      <nav class="mt-5" aria-label="Navegacion de paginas">
-        <ul class="pagination justify-content-center">
-          <li class="page-item disabled"><a class="page-link" href="#">Anterior</a></li>
-          <li class="page-item active"><a class="page-link" href="#">1</a></li>
-          <li class="page-item"><a class="page-link" href="#">2</a></li>
-          <li class="page-item"><a class="page-link" href="#">Siguiente</a></li>
-        </ul>
-      </nav>
     </section>
   </div>
 </main>

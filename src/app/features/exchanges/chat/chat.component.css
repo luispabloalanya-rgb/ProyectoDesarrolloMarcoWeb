@@ -1,0 +1,8 @@
+.chat-panel {
+  height: 620px;
+}
+
+.message-bubble {
+  border-radius: 1rem;
+  max-width: min(75%, 520px);
+}

@@ -1,1 +1,47 @@
-<p>settings works!</p>
+<main class="container py-5">
+  <div class="row justify-content-center">
+    <div class="col-lg-8">
+      <h2 class="fw-bold">Configuracion</h2>
+      <p class="text-muted mb-4">Actualiza tus preferencias de perfil y comunicacion.</p>
+
+      @if (user$ | async; as user) {
+      <div class="card border-0 shadow-sm rounded-4 p-4 mb-4">
+        <h5 class="fw-bold mb-3">Perfil publico</h5>
+        <div class="row g-3">
+          <div class="col-md-6">
+            <label class="form-label fw-semibold">Nombre</label>
+            <input class="form-control" [ngModel]="user.name">
+          </div>
+          <div class="col-md-6">
+            <label class="form-label fw-semibold">Correo</label>
+            <input class="form-control" [ngModel]="user.email">
+          </div>
+          <div class="col-12">
+            <label class="form-label fw-semibold">Bio</label>
+            <textarea class="form-control" rows="3" [ngModel]="user.bio"></textarea>
+          </div>
+        </div>
+      </div>
+      }
+
+      <div class="card border-0 shadow-sm rounded-4 p-4">
+        <h5 class="fw-bold mb-3">Preferencias</h5>
+        <div class="form-check form-switch mb-3">
+          <input class="form-check-input" type="checkbox" id="notifications" [(ngModel)]="notifications">
+          <label class="form-check-label" for="notifications">Recibir avisos de solicitudes y mensajes</label>
+        </div>
+        <div class="form-check form-switch mb-3">
+          <input class="form-check-input" type="checkbox" id="publicProfile" [(ngModel)]="publicProfile">
+          <label class="form-check-label" for="publicProfile">Mostrar mi perfil en busquedas</label>
+        </div>
+        <label class="form-label fw-semibold">Modalidad preferida</label>
+        <select class="form-select" [(ngModel)]="modality">
+          <option>Online</option>
+          <option>Presencial</option>
+          <option>Mixto</option>
+        </select>
+        <button class="btn btn-primary rounded-pill px-4 mt-4" type="button">Guardar cambios</button>
+      </div>
+    </div>
+  </div>
+</main>

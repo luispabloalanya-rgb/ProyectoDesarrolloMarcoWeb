@@ -1,0 +1,23 @@
+{
+  "id": "me",
+  "name": "Valeria Torres",
+  "shortName": "Valeria T.",
+  "email": "valeria@skillswap.test",
+  "location": "Lima, Peru",
+  "avatarUrl": "https://ui-avatars.com/api/?name=Valeria+Torres&background=0d6efd&color=fff",
+  "rating": 4.8,
+  "exchanges": 18,
+  "credits": 3,
+  "plan": "Basico",
+  "bio": "Estudiante de ingenieria interesada en aprender tecnologia aplicada y compartir conocimientos de Excel e ingles.",
+  "teaches": [
+    { "name": "Excel Avanzado", "level": "Intermedio", "category": "Negocios", "description": "Tablas dinamicas, formulas y reportes ejecutivos." },
+    { "name": "Ingles Basico", "level": "Basico", "category": "Idiomas", "description": "Practica conversacional y vocabulario para estudiantes." }
+  ],
+  "wants": [
+    { "name": "Python", "level": "Basico", "category": "Tecnologia", "description": "Automatizacion y fundamentos de programacion." },
+    { "name": "Diseno UX", "level": "Inicial", "category": "Diseno", "description": "Wireframes y criterios de experiencia de usuario." }
+  ],
+  "availability": ["Lunes 19:00", "Miercoles 20:00", "Sabado 10:00"],
+  "modality": "Mixto"
+}

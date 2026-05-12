@@ -1,0 +1,66 @@
+[
+  {
+    "id": "carlos",
+    "name": "Carlos Gomez",
+    "shortName": "Carlos G.",
+    "email": "carlos@skillswap.test",
+    "location": "Lima, Peru",
+    "avatarUrl": "https://ui-avatars.com/api/?name=Carlos+Gomez&background=0D8ABC&color=fff",
+    "rating": 4.9,
+    "exchanges": 12,
+    "credits": 5,
+    "plan": "Premium",
+    "bio": "Desarrollador backend apasionado por la ensenanza. Busca mejorar su analisis de datos con Excel avanzado.",
+    "teaches": [
+      { "name": "Python", "level": "Intermedio", "category": "Tecnologia", "description": "Pandas, automatizacion de scripts y fundamentos backend." },
+      { "name": "SQL Basico", "level": "Basico", "category": "Tecnologia", "description": "Consultas, joins y modelado simple de tablas." }
+    ],
+    "wants": [
+      { "name": "Excel Avanzado", "level": "Intermedio", "category": "Negocios", "description": "Macros, Power Query y tablas dinamicas." }
+    ],
+    "availability": ["Martes 18:00", "Jueves 19:00"],
+    "modality": "Online"
+  },
+  {
+    "id": "ana",
+    "name": "Ana Mendoza",
+    "shortName": "Ana M.",
+    "email": "ana@skillswap.test",
+    "location": "Arequipa, Peru",
+    "avatarUrl": "https://ui-avatars.com/api/?name=Ana+Mendoza&background=198754&color=fff",
+    "rating": 5,
+    "exchanges": 8,
+    "credits": 2,
+    "plan": "Basico",
+    "bio": "Docente de ingles con experiencia en conversacion para estudiantes universitarios.",
+    "teaches": [
+      { "name": "Ingles Conversacional", "level": "Intermedio", "category": "Idiomas", "description": "Fluidez, pronunciacion y vocabulario aplicado." }
+    ],
+    "wants": [
+      { "name": "Matematicas", "level": "Basico", "category": "Ciencias", "description": "Refuerzo para calculo y algebra." }
+    ],
+    "availability": ["Lunes 20:00", "Sabado 09:00"],
+    "modality": "Online"
+  },
+  {
+    "id": "laura",
+    "name": "Laura Mendoza",
+    "shortName": "Laura M.",
+    "email": "laura@skillswap.test",
+    "location": "Lima, Peru",
+    "avatarUrl": "https://ui-avatars.com/api/?name=Laura+Mendoza&background=E0F2FE&color=0284C7",
+    "rating": 4.7,
+    "exchanges": 15,
+    "credits": 4,
+    "plan": "Basico",
+    "bio": "Analista de datos que comparte buenas practicas de Excel y Power BI.",
+    "teaches": [
+      { "name": "Power BI", "level": "Intermedio", "category": "Negocios", "description": "Modelado, visualizaciones y dashboards." }
+    ],
+    "wants": [
+      { "name": "Ingles Basico", "level": "Basico", "category": "Idiomas", "description": "Practica conversacional para entrevistas." }
+    ],
+    "availability": ["Viernes 18:00", "Domingo 11:00"],
+    "modality": "Mixto"
+  }
+]

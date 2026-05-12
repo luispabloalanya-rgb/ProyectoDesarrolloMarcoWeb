@@ -1,1 +1,55 @@
-<p>registro works!</p>
+<main class="auth-page d-flex align-items-center py-5">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-lg-7">
+        <div class="card border-0 shadow-sm rounded-4 p-4 p-md-5">
+          <div class="text-center mb-4">
+            <a class="navbar-brand fw-bold text-primary fs-3 text-decoration-none" routerLink="/dashboard">
+              <i class="bi bi-infinity"></i> SkillSwap
+            </a>
+            <h1 class="h3 fw-bold mt-4">Crea tu perfil de intercambio</h1>
+            <p class="text-muted mb-0">Define que puedes ensenar y que quieres aprender.</p>
+          </div>
+
+          <form [formGroup]="form" (ngSubmit)="submit()">
+            <div class="row g-3">
+              <div class="col-md-6">
+                <label class="form-label fw-semibold">Nombre completo</label>
+                <input type="text" class="form-control form-control-lg" formControlName="name">
+              </div>
+              <div class="col-md-6">
+                <label class="form-label fw-semibold">Correo</label>
+                <input type="email" class="form-control form-control-lg" formControlName="email">
+              </div>
+              <div class="col-md-6">
+                <label class="form-label fw-semibold">Contrasena</label>
+                <input type="password" class="form-control form-control-lg" formControlName="password">
+              </div>
+              <div class="col-md-6">
+                <label class="form-label fw-semibold">Puedes ensenar</label>
+                <input type="text" class="form-control form-control-lg" formControlName="teach" placeholder="Ej. Excel, Ingles, Python">
+              </div>
+              <div class="col-12">
+                <label class="form-label fw-semibold">Quieres aprender</label>
+                <input type="text" class="form-control form-control-lg" formControlName="learn" placeholder="Ej. Power BI, UX, Matematicas">
+              </div>
+            </div>
+
+            <button class="btn btn-primary btn-lg w-100 rounded-pill fw-bold mt-4" type="submit" [disabled]="isSubmitting">
+              @if (isSubmitting) {
+                <span class="spinner-border spinner-border-sm me-2"></span>Creando perfil...
+              } @else {
+                Crear cuenta
+              }
+            </button>
+          </form>
+
+          <p class="text-center text-muted mt-4 mb-0">
+            Ya tienes cuenta?
+            <a routerLink="/login" class="fw-semibold text-decoration-none">Inicia sesion</a>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>

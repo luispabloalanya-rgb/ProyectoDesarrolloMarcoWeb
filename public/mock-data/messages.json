@@ -1,0 +1,5 @@
+[
+  { "id": "msg-001", "exchangeId": "ex-002", "from": "them", "text": "Hola Valeria, claro. Podemos empezar con variables, funciones y pequenos scripts.", "sentAt": "2026-05-12T09:00:00" },
+  { "id": "msg-002", "exchangeId": "ex-002", "from": "me", "text": "Perfecto. Yo puedo preparar un ejemplo de dashboard en Excel para devolverte la sesion.", "sentAt": "2026-05-12T09:03:00" },
+  { "id": "msg-003", "exchangeId": "ex-001", "from": "them", "text": "Tengo disponibilidad el viernes por la tarde si te funciona.", "sentAt": "2026-05-12T09:12:00" }
+]
