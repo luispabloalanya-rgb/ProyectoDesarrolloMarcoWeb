@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SkillSwap - Sesión Finalizada</title>
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="styles.css">
+
+    <style>
+        .star-rating i {
+            font-size: 2rem;
+            color: #dee2e6;
+            cursor: pointer;
+            transition: color 0.2s ease;
+        }
+        .star-rating i.hovered, .star-rating i.selected {
+            color: #ffc107;
+        }
+    </style>
+</head>
+<body class="bg-light">
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-white sticky-top shadow-sm py-3">
+        <div class="container">
+            <a class="navbar-brand fw-bold text-primary fs-4" href="index.html">
+                <i class="bi bi-infinity"></i> SkillSwap
+            </a>
+            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#menuPrincipal">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="menuPrincipal">
+                <ul class="navbar-nav ms-auto align-items-center">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Inicio</a></li>
+                    <li class="nav-item"><a class="nav-link" href="explorar.html">Explorar</a></li>
+                    <li class="nav-item"><a class="nav-link fw-bold text-warning" href="planes.html"><i class="bi bi-star-fill"></i> Premium</a></li>
+                    <li class="nav-item ms-lg-3 mt-3 mt-lg-0">
+                        <a class="btn btn-outline-primary rounded-pill px-4 d-flex align-items-center gap-2" href="intercambios.html">
+                            <i class="bi bi-person-circle fs-5"></i> Mi Perfil
+                            <span class="badge bg-primary rounded-pill ms-1">4 Créditos</span> </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <main class="container py-5">
+        <div class="row justify-content-center">
+            <div class="col-md-8 col-lg-6">
+                
+                <div class="text-center mb-5">
+                    <div class="display-1 text-success mb-3">
+                        <i class="bi bi-check-circle-fill"></i>
+                    </div>
+                    <h2 class="fw-bold">¡Sesión Finalizada con Éxito!</h2>
+                    <p class="text-muted">Has completado tu tutoría de "Python Básico".</p>
+                </div>
+
+                <div class="card border-0 shadow-sm rounded-4 mb-4 bg-primary text-white text-center p-4">
+                    <div class="card-body">
+                        <h5 class="mb-3 opacity-75">Créditos Actualizados</h5>
+                        <div class="display-4 fw-bold mb-2">
+                            +1 <i class="bi bi-coin text-warning"></i>
+                        </div>
+                        <p class="mb-0 fw-semibold">¡Genial! Como tú enseñaste, has ganado un crédito.<br>Tu nuevo saldo es: <strong>4 Créditos</strong>.</p>
+                    </div>
+                </div>
+
+                <div class="card border-0 shadow-sm rounded-4 p-4 p-md-5">
+                    <h4 class="fw-bold text-center mb-4">Valora a tu alumno</h4>
+                    
+                    <div class="d-flex align-items-center justify-content-center mb-4">
+                        <img src="https://ui-avatars.com/api/?name=Carlos+G&background=0D8ABC&color=fff" alt="Carlos" class="rounded-circle me-3" style="width: 50px; height: 50px;">
+                        <div>
+                            <h6 class="mb-0 fw-bold">Carlos Gómez</h6>
+                            <small class="text-muted">Alumno</small>
+                        </div>
+                    </div>
+
+                    <form action="index.html">
+                        <div class="text-center mb-4 star-rating" id="starContainer">
+                            <i class="bi bi-star-fill" data-value="1"></i>
+                            <i class="bi bi-star-fill" data-value="2"></i>
+                            <i class="bi bi-star-fill" data-value="3"></i>
+                            <i class="bi bi-star-fill" data-value="4"></i>
+                            <i class="bi bi-star-fill" data-value="5"></i>
+                            <input type="hidden" name="rating" id="ratingValue" required>
+                        </div>
+
+                        <div class="mb-4">
+                            <label class="form-label fw-semibold text-muted small">Deja un comentario público (Opcional):</label>
+                            <textarea class="form-control" rows="3" placeholder="Ej. Carlos es muy atento y aprende rápido..."></textarea>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary btn-lg w-100 rounded-pill fw-bold">
+                            Guardar y Volver al Inicio
+                        </button>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const stars = document.querySelectorAll('.star-rating i');
+            const ratingInput = document.getElementById('ratingValue');
+
+            stars.forEach(star => {
+                // Efecto al pasar el mouse por encima
+                star.addEventListener('mouseover', function() {
+                    const value = this.getAttribute('data-value');
+                    stars.forEach(s => {
+                        if (s.getAttribute('data-value') <= value) {
+                            s.classList.add('hovered');
+                        } else {
+                            s.classList.remove('hovered');
+                        }
+                    });
+                });
+
+                star.addEventListener('mouseout', function() {
+                    stars.forEach(s => s.classList.remove('hovered'));
+                });
+
+                star.addEventListener('click', function() {
+                    const value = this.getAttribute('data-value');
+                    ratingInput.value = value;
+                    
+                    stars.forEach(s => {
+                        if (s.getAttribute('data-value') <= value) {
+                            s.classList.add('selected');
+                        } else {
+                            s.classList.remove('selected');
+                        }
+                    });
+                });
+            });
+        });
+    </script>
+</body>
+</html>

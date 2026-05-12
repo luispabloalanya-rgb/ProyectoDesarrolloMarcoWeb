@@ -1,0 +1,66 @@
+/* Fondo de la aplicación */
+body {
+    background-color: #f8f9fa;
+    font-family: 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+}
+
+/* Efectos de tarjetas */
+.card-dashboard, .user-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border-radius: 12px;
+}
+
+.card-dashboard:hover, .user-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.08) !important;
+}
+
+/* Cajas de íconos */
+.icon-box {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1rem;
+}
+
+/* Imágenes de perfil genéricas */
+.avatar-placeholder {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+}
+
+/* Cabecera del perfil */
+.profile-header {
+    background: linear-gradient(135deg, #0d6efd 0%, #0dcaf0 100%);
+    border-radius: 15px 15px 0 0;
+    padding: 3rem 1rem;
+    color: white;
+    text-align: center;
+    position: relative;
+}
+
+/* Imagen de perfil grande y superpuesta */
+.profile-avatar-large {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    border: 5px solid white;
+    border-radius: 50%;
+    margin-top: -75px;
+    background-color: white;
+}
+
+/* Ajustes para las Pestañas */
+.nav-tabs .nav-link {
+    color: #495057;
+    font-weight: 500;
+}
+.nav-tabs .nav-link.active {
+    font-weight: bold;
+    color: #0d6efd;
+    border-bottom: 3px solid #0d6efd;
+}
