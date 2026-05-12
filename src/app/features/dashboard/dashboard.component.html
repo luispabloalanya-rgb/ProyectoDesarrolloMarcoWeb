@@ -1,1 +1,67 @@
-<p>dashboard works!</p>
+<main class="container py-5">
+  <div class="row justify-content-center text-center mb-5">
+    <div class="col-lg-8">
+      <h1 class="display-5 fw-bold mb-3">Bienvenido, Usuario</h1>
+      <p class="lead text-muted mb-4">Que habilidad te gustaria aprender o compartir hoy?</p>
+
+      <div class="input-group input-group-lg shadow-sm rounded-pill overflow-hidden">
+        <span class="input-group-text bg-white border-0 ps-4"><i class="bi bi-search text-muted"></i></span>
+        <input type="text" class="form-control border-0" placeholder="Ej. Aprender Excel, Ensenar Ingles..." aria-label="Buscar habilidades">
+        <a class="btn btn-primary px-4" routerLink="/busqueda">Buscar</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="row g-4">
+    <a routerLink="/busqueda" class="col-12 col-md-6 col-lg-3 text-decoration-none">
+      <div class="card h-100 border-0 shadow-sm card-dashboard text-center p-4">
+        <div class="card-body p-0 text-dark">
+          <div class="icon-box bg-primary bg-opacity-10 text-primary">
+            <i class="bi bi-search fs-2"></i>
+          </div>
+          <h5 class="card-title fw-bold">Buscar Habilidades</h5>
+          <p class="card-text text-muted small">Encuentra usuarios dispuestos a ensenar lo que necesitas.</p>
+        </div>
+      </div>
+    </a>
+
+    <a routerLink="/agenda" class="col-12 col-md-6 col-lg-3 text-decoration-none">
+      <div class="card h-100 border-0 shadow-sm card-dashboard text-center p-4">
+        <div class="card-body p-0 text-dark">
+          <div class="icon-box bg-success bg-opacity-10 text-success">
+            <i class="bi bi-calendar-event fs-2"></i>
+          </div>
+          <h5 class="card-title fw-bold">Mi Agenda</h5>
+          <p class="card-text text-muted small">Revisa tus sesiones programadas y tutorias pendientes.</p>
+        </div>
+      </div>
+    </a>
+
+    <a routerLink="/solicitudes" class="col-12 col-md-6 col-lg-3 text-decoration-none">
+      <div class="card h-100 border-0 shadow-sm card-dashboard text-center p-4 position-relative">
+        <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger mt-3">
+          2 nuevas
+        </span>
+        <div class="card-body p-0 text-dark">
+          <div class="icon-box bg-warning bg-opacity-10 text-warning">
+            <i class="bi bi-arrow-left-right fs-2"></i>
+          </div>
+          <h5 class="card-title fw-bold">Intercambios</h5>
+          <p class="card-text text-muted small">Gestiona tus solicitudes enviadas y recibidas.</p>
+        </div>
+      </div>
+    </a>
+
+    <a routerLink="/chat" class="col-12 col-md-6 col-lg-3 text-decoration-none">
+      <div class="card h-100 border-0 shadow-sm card-dashboard text-center p-4">
+        <div class="card-body p-0 text-dark">
+          <div class="icon-box bg-info bg-opacity-10 text-info">
+            <i class="bi bi-chat-dots fs-2"></i>
+          </div>
+          <h5 class="card-title fw-bold">Mensajes</h5>
+          <p class="card-text text-muted small">Coordina los detalles de tus sesiones con otros usuarios.</p>
+        </div>
+      </div>
+    </a>
+  </div>
+</main>

@@ -1,1 +1,106 @@
-<p>user-profile works!</p>
+<main class="container py-5">
+  <div class="row justify-content-center">
+    <div class="col-lg-8">
+      <div class="card border-0 shadow-sm rounded-4 mb-4">
+        <div class="profile-header"></div>
+
+        <div class="card-body text-center px-4 pb-4">
+          <img src="https://ui-avatars.com/api/?name=Carlos+G&background=0D8ABC&color=fff&size=150" alt="Carlos G." class="profile-avatar-large mb-3 shadow-sm">
+
+          <h2 class="fw-bold mb-1">Carlos Gomez</h2>
+          <p class="text-muted mb-2"><i class="bi bi-geo-alt-fill"></i> Lima, Peru - <i class="bi bi-star-fill text-warning"></i> 4.9 (12 valoraciones)</p>
+          <p class="px-md-5 mb-4">"Desarrollador Backend apasionado por la ensenanza. Busco mejorar mis habilidades en analisis de datos y herramientas como Excel avanzado."</p>
+
+          <button type="button" class="btn btn-primary btn-lg rounded-pill px-5 shadow-sm" data-bs-toggle="modal" data-bs-target="#modalSolicitud">
+            <i class="bi bi-send-fill me-2"></i> Solicitar Intercambio
+          </button>
+        </div>
+      </div>
+
+      <div class="card border-0 shadow-sm rounded-4 p-4">
+        <ul class="nav nav-tabs nav-fill mb-4" id="habilidadesTab" role="tablist">
+          <li class="nav-item" role="presentation">
+            <button class="nav-link active" id="ensena-tab" data-bs-toggle="tab" data-bs-target="#ensena" type="button" role="tab">Lo que Enseno</button>
+          </li>
+          <li class="nav-item" role="presentation">
+            <button class="nav-link" id="busca-tab" data-bs-toggle="tab" data-bs-target="#busca" type="button" role="tab">Lo que Busco</button>
+          </li>
+        </ul>
+
+        <div class="tab-content" id="habilidadesTabContent">
+          <div class="tab-pane fade show active" id="ensena" role="tabpanel">
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item d-flex align-items-center">
+                <i class="bi bi-code-square fs-4 text-primary me-3"></i>
+                <div>
+                  <h6 class="mb-0 fw-bold">Python (Nivel Intermedio)</h6>
+                  <small class="text-muted">Librerias Pandas, automatizacion de scripts.</small>
+                </div>
+              </li>
+              <li class="list-group-item d-flex align-items-center">
+                <i class="bi bi-database fs-4 text-primary me-3"></i>
+                <div>
+                  <h6 class="mb-0 fw-bold">SQL (Basico)</h6>
+                  <small class="text-muted">Consultas, Joins, creacion de tablas.</small>
+                </div>
+              </li>
+            </ul>
+          </div>
+          <div class="tab-pane fade" id="busca" role="tabpanel">
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item d-flex align-items-center">
+                <i class="bi bi-file-earmark-spreadsheet fs-4 text-success me-3"></i>
+                <div>
+                  <h6 class="mb-0 fw-bold">Excel Avanzado</h6>
+                  <small class="text-muted">Macros, Power Query, Tablas Dinamicas.</small>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+
+<div class="modal fade" id="modalSolicitud" tabindex="-1" aria-labelledby="modalSolicitudLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content border-0 rounded-4 shadow">
+      <div class="modal-header border-bottom-0 pb-0">
+        <h5 class="modal-title fw-bold" id="modalSolicitudLabel">Proponer Intercambio</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <p class="text-muted small mb-4">Vas a enviar una solicitud a <strong>Carlos Gomez</strong>. Selecciona que le ensenaras a cambio de sus conocimientos.</p>
+
+        <form>
+          <div class="mb-3">
+            <label class="form-label fw-semibold">Quiero aprender de Carlos:</label>
+            <select class="form-select">
+              <option value="python">Python (Nivel Intermedio)</option>
+              <option value="sql">SQL (Basico)</option>
+            </select>
+          </div>
+
+          <div class="mb-3">
+            <label class="form-label fw-semibold">Yo le ofrezco ensenar:</label>
+            <select class="form-select">
+              <option value="" disabled selected>Elige una de tus habilidades...</option>
+              <option value="excel">Excel Avanzado (Lo que el busca)</option>
+              <option value="ingles">Ingles Basico</option>
+            </select>
+          </div>
+
+          <div class="mb-3">
+            <label class="form-label fw-semibold">Mensaje (Opcional):</label>
+            <textarea class="form-control" rows="3" placeholder="Hola Carlos, veo que buscas Excel y yo quiero aprender Python. Te animas a una sesion de 1 hora?"></textarea>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer border-top-0 pt-0">
+        <button type="button" class="btn btn-light rounded-pill" data-bs-dismiss="modal">Cancelar</button>
+        <a class="btn btn-primary rounded-pill px-4" data-bs-dismiss="modal" routerLink="/solicitudes">Enviar Solicitud</a>
+      </div>
+    </div>
+  </div>
+</div>

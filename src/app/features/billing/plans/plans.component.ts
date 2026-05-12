@@ -2,11 +2,11 @@ import { Component } from '@angular/core';
 import { RouterLink } from '@angular/router';
 
 @Component({
-  selector: 'app-search',
+  selector: 'app-plans',
   standalone: true,
   imports: [RouterLink],
-  templateUrl: './search.component.html',
-  styleUrl: './search.component.css'
+  templateUrl: './plans.component.html',
+  styleUrl: './plans.component.css'
 })
-export class SearchComponent {
+export class PlansComponent {
 }

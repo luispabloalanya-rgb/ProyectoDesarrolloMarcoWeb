@@ -14,6 +14,7 @@ export class SidebarComponent {
     { path: '/busqueda', label: 'Buscar Habilidades', icon: 'bi-search' },
     { path: '/agenda', label: 'Mi Agenda', icon: 'bi-calendar-event' },
     { path: '/solicitudes', label: 'Intercambios', icon: 'bi-arrow-left-right' },
+    { path: '/planes', label: 'Premium', icon: 'bi-star-fill' },
     { path: '/chat', label: 'Mensajes', icon: 'bi-chat-dots' },
     { path: '/historial', label: 'Historial', icon: 'bi-journal-text' }
   ];

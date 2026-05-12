@@ -1,1 +1,60 @@
-<p>feedback works!</p>
+<main class="container py-5">
+  <div class="row justify-content-center">
+    <div class="col-md-8 col-lg-6">
+      <div class="text-center mb-5">
+        <div class="display-1 text-success mb-3">
+          <i class="bi bi-check-circle-fill"></i>
+        </div>
+        <h2 class="fw-bold">Sesion Finalizada con Exito</h2>
+        <p class="text-muted">Has completado tu tutoria de "Python Basico".</p>
+      </div>
+
+      <div class="card border-0 shadow-sm rounded-4 mb-4 bg-primary text-white text-center p-4">
+        <div class="card-body">
+          <h5 class="mb-3 opacity-75">Creditos Actualizados</h5>
+          <div class="display-4 fw-bold mb-2">
+            +1 <i class="bi bi-coin text-warning"></i>
+          </div>
+          <p class="mb-0 fw-semibold">Como tu ensenaste, has ganado un credito.<br>Tu nuevo saldo es: <strong>4 Creditos</strong>.</p>
+        </div>
+      </div>
+
+      <div class="card border-0 shadow-sm rounded-4 p-4 p-md-5">
+        <h4 class="fw-bold text-center mb-4">Valora a tu alumno</h4>
+
+        <div class="d-flex align-items-center justify-content-center mb-4">
+          <img src="https://ui-avatars.com/api/?name=Carlos+G&background=0D8ABC&color=fff" alt="Carlos" class="rounded-circle me-3" style="width: 50px; height: 50px;">
+          <div>
+            <h6 class="mb-0 fw-bold">Carlos Gomez</h6>
+            <small class="text-muted">Alumno</small>
+          </div>
+        </div>
+
+        <form>
+          <div class="text-center mb-4 star-rating">
+            @for (star of [1, 2, 3, 4, 5]; track star) {
+              <i
+                class="bi bi-star-fill"
+                [class.selected]="isStarActive(star)"
+                [class.hovered]="hoveredRating > 0 && star <= hoveredRating"
+                (mouseenter)="setHoveredRating(star)"
+                (mouseleave)="setHoveredRating(0)"
+                (click)="setRating(star)">
+              </i>
+            }
+            <input type="hidden" name="rating" [value]="rating" required>
+          </div>
+
+          <div class="mb-4">
+            <label class="form-label fw-semibold text-muted small">Deja un comentario publico (Opcional):</label>
+            <textarea class="form-control" rows="3" placeholder="Ej. Carlos es muy atento y aprende rapido..."></textarea>
+          </div>
+
+          <a routerLink="/dashboard" class="btn btn-primary btn-lg w-100 rounded-pill fw-bold">
+            Guardar y Volver al Inicio
+          </a>
+        </form>
+      </div>
+    </div>
+  </div>
+</main>
